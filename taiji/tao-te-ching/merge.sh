@@ -1,0 +1,1 @@
+cat laotzu*.html | grep -v '<a ' | sed -E 's/<\/?[bh]r?>//g' | sed -E 's/<\/?(body|html|head|title)[^>]*>//g' | grep -v '^\s*$' | uniq | sed 's/&#160;/ /g' | sed -E 's/^Tao Te Ching - Lao Tzu - c(.+)$/\n\n\nC\1\n/g'

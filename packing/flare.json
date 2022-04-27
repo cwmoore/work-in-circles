@@ -1,0 +1,139 @@
+{
+ "name": "taijitu",
+ "children": [
+    {
+     "name": "yin",
+     "children": [
+      {
+       "name": "cluster",
+       "children": [
+        {
+         "name": "yin",
+         "children": [
+          {
+           "name": "cluster",
+           "children": [
+            {
+             "name": "yin",
+             "children": [
+              {
+               "name": "cluster",
+               "children": [
+                {
+                 "name": "yin",
+                 "children": [
+                  {
+                   "name": "cluster",
+                   "children": [
+                    {"name": "yin", "size": 3938},
+                    {"name": "yan", "size": 3812}
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "name": "yan",
+                 "children": [
+                  {
+                   "name": "cluster",
+                   "children": [
+                    {"name": "yin", "size": 3938},
+                    {"name": "yan", "size": 3812}
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "name": "yan",
+             "children": [
+              {
+               "name": "cluster",
+               "children": [
+                {
+                 "name": "yin",
+                 "children": [
+                  {
+                   "name": "cluster",
+                   "children": [
+                    {"name": "yin", "size": 3938},
+                    {"name": "yan", "size": 3812}
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "name": "yan",
+                 "children": [
+                  {
+                   "name": "cluster",
+                   "children": [
+                    {"name": "yin", "size": 3938},
+                    {"name": "yan", "size": 3812}
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "name": "yan",
+         "children": [
+          {
+           "name": "cluster",
+           "children": [
+            {"name": "yin", "size": 3938},
+            {"name": "yan", "size": 3812}
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "yan",
+     "children": [
+      {
+       "name": "cluster",
+       "children": [
+        {
+         "name": "yin",
+         "children": [
+          {
+           "name": "cluster",
+           "children": [
+            {"name": "yin", "size": 3938},
+            {"name": "yan", "size": 3812}
+           ]
+          }
+         ]
+        },
+        {
+         "name": "yan",
+         "children": [
+          {
+           "name": "cluster",
+           "children": [
+            {"name": "yin", "size": 3938},
+            {"name": "yan", "size": 3812}
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+ ]
+}

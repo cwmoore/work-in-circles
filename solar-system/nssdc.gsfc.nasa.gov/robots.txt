@@ -1,0 +1,31 @@
+# /robots.txt for nssdc.gsfc.nasa.gov
+# See http://info.webcrawler.com/mak/projects/robots/norobots.html
+
+# by default
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /bu
+Disallow: /ccsds
+Disallow: /database
+Disallow: /in
+Disallow: /lo
+Disallow: /nasa
+Disallow: /nmc/t
+Disallow: /nmc/masterCatalog
+Disallow: /sswg
+Disallow: /st
+Disallow: /util
+Disallow: /nmc/personDisplay
+Disallow: /nmc/publicationDisplay
+Disallow: /nmc/SpacecraftQ
+Disallow: /nmc/ExperimentQ
+Disallow: /nmc/DatasetQ
+Disallow: /nmc/PersonQ
+Disallow: /nmc/PublicationQ
+Disallow: /nmc/MapQ
+Disallow: /nmc/EventQ
+Disallow: /nmc/NewDataQ
+
+User-agent: gsfcbot
+Disallow: /nmc/
+
