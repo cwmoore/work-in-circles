@@ -1,18 +1,19 @@
 /*
 filename: circ_date_color.js
-purpose: for fun maybe, convert US date to RGB
-description: normalize date values (month, day, year) to period length then remap to 24-bit RGB color value ranges
+purpose: convert US date to RGB
+description: Normalize date values (month, day, year) to period length, then remap to 24-bit RGB color value ranges
 
-next: create a calendar or timeline and evaluate aesthetically
+todo: create a calendar or timeline and evaluate aesthetically
 
 */
 
-
+// define constants
 const years_in_century = 100
 const months_in_year = 12
 const days_in_month = 30
 const rgb_range = 255
 
+// define test dates
 const test_dates = [
     {
         'month': 1
@@ -51,7 +52,9 @@ const test_dates = [
     }
 ]
 
+// map test dates to colors
 test_dates.map(
+    // get an RGB value for a date
     (test_date) => {
         // RGB base object
         const rgb_color = {'r': 0, 'g': 0, 'b': 0}
