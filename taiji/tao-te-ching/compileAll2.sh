@@ -1,1 +1,0 @@
-cat laotzu*.html | pandoc --from=html --to=plain | grep -v '^\W*$' | grep -v 'Tao Te Ching home page' | grep -v '^(translation' | sed -E 's/Tao Te Ching - Lao Tzu - c(.+)$/\n\n\n---\n\nC\1\n\n---/g' > laoall2.txt 

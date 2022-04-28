@@ -1,10 +1,11 @@
+/**
+ * "an n-dimensional box has 2^^n corners"
+ * from: https://www.quantamagazine.org/the-math-of-social-distancing-is-a-lesson-in-geometry-20200713/
+ */
+
 // coordinate space of dimensions chosen
 const coordinateSpace = (numberOfDimensions = 4) => {
     // the number of free/bound and visible dimensions
-
-
-    /** from: https://www.quantamagazine.org/the-math-of-social-distancing-is-a-lesson-in-geometry-20200713/?utm_source=pocket-newtab
-            "an n-dimensional box has 2^^n corners" */
 };
 
 // draw a circle in 3D space
