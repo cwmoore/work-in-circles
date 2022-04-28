@@ -177,18 +177,54 @@ const drawGrids = () => {
 };
 
 
+/**
+ * Rotate content to the left
+ * @param {} e 
+ */
+const handlePressLeft = (e) => {
+    console.log('Left button pressed');
+    // redraw();
+}
+
+
+/**
+ * Decrease cell size
+ * @param {} e 
+ */
+const handlePressMinus = (e, subtractPercent = 12.3) => {
+    handlePressPlus(e, -subtractPercent);
+}
+
+
+/**
+ * Non-functional
+ * @param {} e 
+ */
+const handlePressRun = (e) => {
+    console.log('Run button pressed');
+    // redraw();
+}
+
+
+/**
+ * Increase cell size
+ * @param {} e 
+ */
 const handlePressPlus = (e, addPercent = 12.3) => {
     width *= (100.0 + addPercent) / 100.0;
     if (width < 0.5) width = 0.5 // TODO throw exception?
     console.log('width parameter now:', width);
     redraw();
 }
-const handlePressMinus = (e, subtractPercent = 12.3) => {
-    handlePressPlus(e, -subtractPercent);
+
+/**
+ * Rotate content to the right
+ * @param {} e 
+ */
+const handlePressRight = (e) => {
+    console.log('Right button pressed');
+    // redraw();
 }
-// const handlePressRedraw = (e) => {
-//     redraw();
-// }
 const handlePressReset = (e) => {
     init();
     redraw();
@@ -196,7 +232,10 @@ const handlePressReset = (e) => {
 
 
 // clear and draw with current params
-const redraw = () => {
+const redraw = (
+        currentAngle=-Math.PI/2 + (2 * Math.PI * 1.5 / 12)
+        , sliceAngle=3*Math.PI, color='rgba(0,0,0,0)'
+    ) => {
     console.log('in redraw');
     cx.beginPath();
     cx.stroke();
@@ -204,7 +243,7 @@ const redraw = () => {
     cx.clearRect(0,0,3000,3000);
 
     drawGrids();
-    scribeCircle(currentAngle=-Math.PI/2 + (2 * Math.PI * 1.5 / 12), sliceAngle=3*Math.PI, color='rgba(0,0,0,0)');
+    scribeCircle(currentAngle, sliceAngle);
 }
 
 
@@ -254,9 +293,11 @@ const init = () => {
     // centerY = (minY + maxY) / 2 - width - 2;
 
     // bind event functions
+    document.querySelector('#left_btn').addEventListener('click', handlePressLeft);
     document.querySelector('#minus_btn').addEventListener('click', handlePressMinus);
+    document.querySelector('#run_btn').addEventListener('click', handlePressRun)
     document.querySelector('#plus_btn').addEventListener('click', handlePressPlus);
-    // document.querySelector('#redraw_btn').addEventListener('click', handlePressRedraw)
+    document.querySelector('#right_btn').addEventListener('click', handlePressRight);
     document.querySelector('#reset_btn').addEventListener('click', handlePressReset);
 }
 
