@@ -2,6 +2,9 @@
 
 *Art and experiment*
 
-The geometry of location, envisioned in the browser.
+The geometry of location, envisioned in the browser using JavaScript.
 
-see [LICENCE](LICENSE)
+
+
+
+see [LICENSE](LICENSE)

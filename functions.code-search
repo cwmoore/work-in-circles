@@ -1,0 +1,957 @@
+257 results - 20 files
+
+circ-horizonally/script.js:
+    1  // needs instrumenting, naming variables for hardcoded parameters scattered below
+    2: const drawCounter = (counter) => {
+    3      leftX = 620;
+
+   18  
+   19: const drawConcentricPlane = (counter=-500) => {
+   20:     // const drawConcentricPlane = (counter=-0.35456789) => {
+   21      console.log(`in drawConcentricPlane(${counter})`);
+
+   40  
+   41:     const degreesToRadiansRatio = 0.0174533;
+   42      while (radius > 0.5) {
+
+  152  
+  153: // const refreshIds = [];
+  154  // let acc = 0;
+
+  181  /*
+  182: //     const results = [
+  183  //   {name: "1", count: 30, color: "white"},
+
+  231  
+  232: const drawRing = (results) => {
+  233      let total = results.length;
+
+  267  // draws the animation, and this is a terrible name for the function, if what you want to do is actually draw a circle
+  268: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  269      for (let i = 0; i < total; i++) {
+
+  284  
+  285: const drawGrids = (width1=12, width2=31) => {
+  286      let min = 20;
+
+  354  
+  355: const drawCounter = (counter) => {
+  356      cx.beginPath();
+
+  369  
+  370: const drawNext = (total, refreshId) => {
+  371  
+
+  399  
+  400: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  401      let part = portion % total;
+
+  531  
+  532: const drawYinYang = () => {
+  533      let radius = 100;
+
+  607  
+  608: const drawIBang = (iNotBang=true) => {
+  609      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+circ-raster/script.js:
+    4  // distance between points 1 and 2
+    5: const euclideanDistance = (p1=[0,0], p2=[0,0]) => {
+    6      //console.log(p1, p2);
+
+   11  // distance between points 1 and 2
+   12: const manhattanDistance = (p1=[0,0], p2=[0,0]) => {
+   13      return Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
+
+   18  // detour index (DI) defined as the ratio of network distance (ND) to straight-line/Euclidean distance (ED)
+   19: const detourIndex = (points=[[0,0]]) => {
+   20      let accDI = 0; // accumulator for averaging detour index
+
+   32  // draw a circle
+   33: const scribeCircle = (
+   34              currentAngle = -Math.PI/2 + (2 * Math.PI * 2.5 / 12)
+
+   55  // boolean whether point is in image (T) or is not in image (F)
+   56: const inImage = (x=-1, y=-1, imageCallback) => {
+   57      return imageCallback(x,y); // a boolean draw function for (x,y)
+
+   60  // draw function for a circle
+   61: const imageBitEuclidean = (x,y) => {
+   62      return baseRadius > euclideanDistance([x,y], [centerX,centerY]);
+
+   64  // draw function for a Manhattan Distance "circle" (a tilted square)
+   65: const imageBitManhattan = (x,y) => {
+   66      return baseRadius >  manhattanDistance([x,y], [centerX,centerY]);
+
+   68  // another draw function for another pattern
+   69: const imageBitCombiner = (x,y) => {
+   70      return baseRadius > euclideanDistance([x,y], [centerX,centerY]) * manhattanDistance([x,y], [centerX,centerY]) / baseRadius;
+
+   72  // subtracting manhattan from euclidean distance
+   73: const imageBitDiffing = (x,y) => {
+   74      return baseRadius > Math.pow(euclideanDistance([x,y], [centerX,centerY]) - manhattanDistance([x,y], [centerX,centerY]), 2) / 2;
+
+   78  // draw grids
+   79: const drawGrids = () => {
+   80      console.log("in drawGridSimple", minX, maxX, minY, maxY, width);
+   81  
+   82:     const sqCenter = width / 2.0;
+   83      let sqX = sqCenter;
+
+  127  
+  128: const handlePressPlus = (e, addPercent = 12.3) => {
+  129      width *= (100.0 + addPercent) / 100.0;
+
+  133  }
+  134: const handlePressMinus = (e, subtractPercent = 12.3) => {
+  135      handlePressPlus(e, -subtractPercent);
+  136  }
+  137: // const handlePressRedraw = (e) => {
+  138  //     redraw();
+  139  // }
+  140: const handlePressReset = (e) => {
+  141      init();
+
+  146  // clear and draw with current params
+  147: const redraw = () => {
+  148      console.log('in redraw');
+
+  178  // set or reset intitial parameters
+  179: const init = () => {
+  180      console.log("in init");
+
+  212  // initialize and draw
+  213: const run = () => {
+  214      console.log("in run");
+
+circ_date_color/circ_date_color.js:
+  10  // define constants
+  11: const years_in_century = 100
+  12: const months_in_year = 12
+  13: const days_in_month = 30
+  14: const rgb_range = 255
+  15  
+  16  // define test dates
+  17: const test_dates = [
+  18      {
+
+  59          // RGB base object
+  60:         const rgb_color = {'r': 0, 'g': 0, 'b': 0}
+  61  
+
+circlockstack/script.js:
+    6  // coordinate space of dimensions chosen
+    7: const coordinateSpace = (numberOfDimensions = 4) => {
+    8      // the number of free/bound and visible dimensions
+
+   15  // needs instrumenting, naming variables for hardcoded parameters scattered below
+   16: const drawCounter = (counter) => {
+   17      leftX = 620;
+
+   32  
+   33: const drawConcentricPlane = (counter=-500) => {
+   34:     // const drawConcentricPlane = (counter=-0.35456789) => {
+   35      console.log(`in drawConcentricPlane(${counter})`);
+
+   54  
+   55:     const degreesToRadiansRatio = 0.0174533;
+   56      while (radius > 0.5) {
+
+  166  
+  167: // const refreshIds = [];
+  168  // let acc = 0;
+
+  195  /*
+  196: //     const results = [
+  197  //   {name: "1", count: 30, color: "white"},
+
+  245  
+  246: const drawRing = (results) => {
+  247      let total = results.length;
+
+  281  // draws the animation, and this is a terrible name for the function, if what you want to do is actually draw a circle
+  282: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  283      for (let i = 0; i < total; i++) {
+
+  298  
+  299: const drawGrids = (width1=12, width2=31) => {
+  300      let min = 20;
+
+  368  
+  369: const drawCounter = (counter) => {
+  370      cx.beginPath();
+
+  383  
+  384: const drawNext = (total, refreshId) => {
+  385  
+
+  413  
+  414: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  415      let part = portion % total;
+
+  545  
+  546: const drawYinYang = () => {
+  547      let radius = 100;
+
+  621  
+  622: const drawIBang = (iNotBang=true) => {
+  623      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+circo-odd/script.js:
+    4  
+    5: const makeFillStyles = (numFills = 10) => {
+    6      
+    7:     // const colors = [
+    8      //     '16'
+
+   19  
+   20:     // const fillStyles = colors.map( (colorR) => {
+   21      //     return colors.map( (colorG) => {
+
+   47  
+   48: const drawPieSlice = (center, radius, portion, priorPortion = 0, fillStyle='rgba(99, 199, 19, 1.0)') => {
+   49  
+
+   66  
+   67: const circoOdd = () => {
+   68      let center = {'x': 650, 'y': 450};
+
+   93  
+   94: const circoOdd10ToBlack = () => {
+   95      let radiusIncrement = 100 / Math.PI;
+
+  114  // needs instrumenting, naming variables for hardcoded parameters scattered below
+  115: // const drawCounter = (counter) => {
+  116  //     leftX = 620;
+
+  131  
+  132: // const drawConcentricPlane = (counter=-500) => {
+  133: //     // const drawConcentricPlane = (counter=-0.35456789) => {
+  134  //     console.log(`in drawConcentricPlane(${counter})`);
+
+  153  
+  154: //     const degreesToRadiansRatio = 0.0174533;
+  155  //     while (radius > 0.5) {
+
+  267  
+  268: // const refreshIds = [];
+  269  // let acc = 0;
+
+  304  /*
+  305: //     const results = [
+  306  //   {name: "1", count: 30, color: "white"},
+
+  354  
+  355: const drawRing = (results) => {
+  356      let total = results.length;
+
+  390  // draws the animation, and this is a terrible name for the function, if what you want to do is actually draw a circle
+  391: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  392      for (let i = 0; i < total; i++) {
+
+  407  
+  408: const drawGrids = (width1=12, width2=31) => {
+  409      let min = 20;
+
+  477  
+  478: const drawCounter = (counter) => {
+  479      cx.beginPath();
+
+  492  
+  493: const drawNext = (total, refreshId) => {
+  494  
+
+  522  
+  523: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  524      let part = portion % total;
+
+  654  
+  655: const drawYinYang = () => {
+  656      let radius = 100;
+
+  730  
+  731: const drawIBang = (iNotBang=true) => {
+  732      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+circoncentric/script.js:
+    1  // needs instrumenting, naming variables for hardcoded parameters scattered below
+    2: const drawCounter = (counter) => {
+    3      leftX = 620;
+
+   18  
+   19: const drawConcentricPlane = (counter=-500) => {
+   20:     // const drawConcentricPlane = (counter=-0.35456789) => {
+   21      console.log(`in drawConcentricPlane(${counter})`);
+
+   40  
+   41:     const degreesToRadiansRatio = 0.0174533;
+   42      while (radius > 0.5) {
+
+  152  
+  153: // const refreshIds = [];
+  154  // let acc = 0;
+
+  181  /*
+  182: //     const results = [
+  183  //   {name: "1", count: 30, color: "white"},
+
+  231  
+  232: const drawRing = (results) => {
+  233      let total = results.length;
+
+  267  // draws the animation, and this is a terrible name for the function, if what you want to do is actually draw a circle
+  268: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  269      for (let i = 0; i < total; i++) {
+
+  284  
+  285: const drawGrids = (width1=12, width2=31) => {
+  286      let min = 20;
+
+  354  
+  355: const drawCounter = (counter) => {
+  356      cx.beginPath();
+
+  369  
+  370: const drawNext = (total, refreshId) => {
+  371  
+
+  399  
+  400: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  401      let part = portion % total;
+
+  531  
+  532: const drawYinYang = () => {
+  533      let radius = 100;
+
+  607  
+  608: const drawIBang = (iNotBang=true) => {
+  609      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+circTao/drawYinYang.js:
+    1: const drawYinYang = (centerX, centerY, radius) => {
+    2  
+
+   60  
+   61: const drawYinYangLeft = (centerX, centerY, radius) => {
+   62  
+
+  130      await sleep(1000);
+  131:     const max = 360 * Math.pow(2, 3);
+  132      for (let i = 0; i <= max; i++)
+
+  153  
+  154: const drawTwoDonuts = (centerX, centerY, radius) => {
+  155      // two donuts, spinning around center
+
+  187  
+  188: const cnv = document.querySelector("canvas");
+  189  let cx = cnv.getContext("2d");
+
+  214  
+  215: const drawStaticYinYang = () => {
+  216      cnv.width = window.innerWidth * 0.95;
+
+  264  // nice blue gray border elements
+  265: const drawYinYangNice = () => {
+  266      let radius = 100;
+
+circularity/index.html.orig:
+   14  <script>
+   15: //     const results = [
+   16  //   {name: "1", count: 30, color: "white"},
+
+   64  
+   65: const drawRing = (results) => {
+   66      let total = results.length;
+
+   99  
+  100: const drawGrids = (width1=12, width2=31) => {
+  101      let min = 20;
+
+  169  
+  170: const drawCounter = (counter) => {
+  171      cx.beginPath();
+
+  184  
+  185: const drawNext = (total, refreshId) => {
+  186  
+
+  214  
+  215: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  216      let part = portion % total;
+
+  346  
+  347: const drawYinYang = () => {
+  348      let radius = 100;
+
+  422  
+  423: const drawIBang = (iNotBang=true) => {
+  424      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+  464  
+  465: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  466      for (let i = 0; i < total; i++) {
+
+circularity/script.js:
+    1: //     const results = [
+    2  //   {name: "1", count: 30, color: "white"},
+
+   50  
+   51: const drawRing = (results) => {
+   52      let total = results.length;
+
+   85  
+   86: const drawGrids = (width1=12, width2=31) => {
+   87      let min = 20;
+
+  155  
+  156: const drawCounter = (counter) => {
+  157      cx.beginPath();
+
+  170  
+  171: const drawNext = (total, refreshId) => {
+  172  
+
+  200  
+  201: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  202      let part = portion % total;
+
+  332  
+  333: const drawYinYang = () => {
+  334      let radius = 100;
+
+  408  
+  409: const drawIBang = (iNotBang=true) => {
+  410      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+  450  
+  451: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  452      for (let i = 0; i < total; i++) {
+
+election-cycling/script.js:
+   49  
+   50: const drawRing = (results) => {
+   51      let total = results.length;
+
+   84  
+   85: const drawGrids = (width1=12, width2=31) => {
+   86      let min = 20;
+
+  154  
+  155: const drawCounter = (counter) => {
+  156      cx.beginPath();
+
+  169  
+  170: const drawNext = (total, refreshId) => {
+  171  
+
+  199  
+  200: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  201      let part = portion % total;
+
+  331  
+  332: const drawYinYang = () => {
+  333      let radius = 100;
+
+  407  
+  408: const drawIBang = (iNotBang=true) => {
+  409      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+  449  
+  450: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  451      for (let i = 0; i < total; i++) {
+
+pipeview/pipeview.script.js:
+   1: const drawCircle = (centerX, centerY, radius, lineWidth=1) => {
+   2      cx.beginPath();
+
+  12  
+  13: const drawConcentricDistanceCircles = (
+  14      centerX = 300
+
+  21  
+  22:     const totalLength = Math.ceil(maxRadius - minRadius);
+  23  
+  24:     const drawIn = (i) => {
+  25          let currentRadius = maxRadius;
+
+  39      let i = 1.8;
+  40:     const clearInt = setInterval(() => {
+  41          cx.clearRect(0,0, canvas.width, canvas.height);
+
+  52  // needs line to link to sections, consider polar coordinates, in degrees or radians
+  53: const drawCaption = (caption, leftX=300, topY=300, height=200, width=300, borderWidth=1,fontHeight=32) => {
+  54      cx.beginPath();
+
+  64      cx.font = `${fontHeight}px serif`;
+  65:     //const avgCharWidth = cx.measureText("ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz 0123456789").width / 200;// 194 is the length of the alphanumeric chars
+  66:     const charWidth = cx.measureText("M").width;
+  67:     const lineHeight = cx.measureText("M").height;
+  68:     const formattedCaptionString = fitStringToCaptionBox(caption, Math.floor(1.9 * width / charWidth));
+  69      if (formattedCaptionString.includes("\n")) {
+  70          // multi-line caption
+  71:         const padding = charWidth / 2;
+  72          let lines = formattedCaptionString.split("\n");
+
+  83  
+  84: const fitStringToCaptionBox = (captionString, charsWide=20) => {
+  85      console.log(`captionString: ${captionString}`);
+
+pipeview/as-art/externary.js:
+  1  // from ternary, denormalized, for a list of {compare:(a, b)=>(){return a>b}), result:}
+  2: const externary = (comparisonQA) => {
+  3          return comparisonQA.
+
+pipeview/as-art/pipeview.script.js:
+   1: const drawCircle = (centerX, centerY, radius, lineWidth=1) => {
+   2      cx.beginPath();
+
+  12  
+  13: const drawConcentricDistanceCircles = (
+  14      centerX = 300
+
+  21  
+  22:     const totalLength = Math.ceil(maxRadius - minRadius);
+  23  
+  24:     const drawIn = (i) => {
+  25          let currentRadius = maxRadius;
+
+  38      let i = 0.4;
+  39:     const clearInt = setInterval(() => {
+  40          cx.clearRect(0,0, canvas.width, canvas.height);
+
+solar-system/script.js:
+  209              // average of the two centers
+  210:             // const centerCenter = {
+  211              //     'x': (center1.x + center2.x) / 2,
+
+  215              // radius of large circle is Euclidean distance between the centers of the two smallest circles (center1, center2)
+  216:             //const radius = this.euclideanDistance(center1, center2);
+  217              // compute orientation of yin and yan sides relative to vertical
+
+  410          //planets.map((planet) => drawOrbit(planet));
+  411:         // const sunCenter = {'x': this.width / 2, 'y': this.height / 2};
+  412:         //const sunCenter = {'x': 0.25 * parseInt(window.innerWidth), 'y': 0.75 * parseInt(window.innerHeight)};
+  413          var _this = this;
+
+  473          //planets.map((planet) => drawOrbit(planet));
+  474:         // const sunCenter = {'x': this.width / 2, 'y': this.height / 2};
+  475:         //const sunCenter = {'x': 0.25 * parseInt(window.innerWidth), 'y': 0.75 * parseInt(window.innerHeight)};
+  476          //mercDists.map((rad) => drawYinYanEccentric(sunCenter, {'x': 400 + 1 * rad, 'y': 500}));
+
+solar-system/script.js.bak:
+    1: const setWhite = (cx, alpha=1) => {
+    2      // cx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+
+    7  
+    8: const setBlack = (cx, alpha=1) => {
+    9      cx.fillStyle = `rgba(25, 25, 25, ${alpha})`;
+
+   12  
+   13: const euclideanDistance = (center1, center2) => {
+   14      
+   15:     const xDist = center1.x - center2.x;
+   16:     const yDist = center1.y - center2.y;
+   17      
+
+   22  
+   23: const drawYinYanEccentric = (center1={'x': 511, 'y': 441}, center2={'x': 923, 'y': 741}) => {
+   24      
+
+   29  
+   30:     const centerCenter = {
+   31          'x': (center1.x + center2.x) / 2,
+
+   35      // radius of large circle is Euclidean distance between the centers of he two smallest circles (center1, center2)
+   36:     const radius = euclideanDistance(center1, center2);
+   37      
+
+   79  
+   80: const drawYinYanEccentric1 = (center1={'x': 500, 'y': 440}, center2={'x': 800, 'y': 640}) => {
+   81      
+   82:     const centerCenter = {};
+   83      
+
+   86      
+   87:     const radius = Math.sqrt(Math.pow(center1.x - center2.x, 2) + Math.pow(center1.y - center2.y, 2));
+   88      
+
+  193  
+  194: const drawCircle = (planet={'radius': 50, 'mass': 4}, center={'x': 600, 'y': 440}) => {
+  195      
+
+  229  
+  230: const planets = [
+  231          {'radius': 1, 'mass': 10}, // sun
+
+  240      ];
+  241: const distances = [ // log distances
+  242      0.02,
+
+  252  
+  253: const mercDists = [// mercury distances to sun
+  254      0.5,
+
+  264  
+  265: const sqrtDists = [//sqrt distance to sun
+  266      1,
+
+  279  // Orbital period
+  280: const yearDays = [
+  281      1,
+
+  296  //planets.map((planet) => drawCircle(planet));
+  297: const sunCenter = {'x': cnvs.width / 2, 'y': cnvs.height / 2};
+  298: //const sunCenter = {'x': 0.25 * parseInt(window.innerWidth), 'y': 0.75 * parseInt(window.innerHeight)};
+  299  
+
+  366  
+  367: // const refreshIds = [];
+  368  // let acc = 0;
+
+  396  // // needs instrumenting, naming variables for hardcoded parameters scattered below
+  397: // const drawCounter = (counter) => {
+  398  //     leftX = 620;
+
+  413  
+  414: // const drawConcentricPlane = (counter=-500) => {
+  415: //     // const drawConcentricPlane = (counter=-0.35456789) => {
+  416  //     console.log(`in drawConcentricPlane(${counter})`);
+
+  435  
+  436: //     const degreesToRadiansRatio = 0.0174533;
+  437  //     while (radius > 0.5) {
+
+  532  /*
+  533: //     const results = [
+  534  //   {name: "1", count: 30, color: "white"},
+
+  582  
+  583: const drawRing = (results) => {
+  584      let total = results.length;
+
+  618  // draws the animation, and this is a terrible name for the function, if what you want to do is actually draw a circle
+  619: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  620      for (let i = 0; i < total; i++) {
+
+  635  
+  636: const drawGrids = (width1=12, width2=31) => {
+  637      let min = 20;
+
+  705  
+  706: const drawCounter = (counter) => {
+  707      cx.beginPath();
+
+  720  
+  721: const drawNext = (total, refreshId) => {
+  722  
+
+  750  
+  751: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  752      let part = portion % total;
+
+  882  
+  883: const drawYinYang = () => {
+  884      let radius = 100;
+
+  958  
+  959: const drawIBang = (iNotBang=true) => {
+  960      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+solar-system/script.ts:
+  213          // average of the two centers
+  214:         const centerCenter = {
+  215              'x': (center1.x + center2.x) / 2,
+
+  219          // radius of large circle is Euclidean distance between the centers of he two smallest circles (center1, center2)
+  220:         const radius = this.euclideanDistance(center1, center2);
+  221          
+
+  295          // average of the two centers
+  296:         // const centerCenter = {
+  297          //     'x': (center1.x + center2.x) / 2,
+
+  303          // radius of large circle is Euclidean distance between the centers of the two smallest circles (center1, center2)
+  304:         //const radius = this.euclideanDistance(center1, center2);
+  305          
+
+  441          
+  442:         const xDist = center1.x - center2.x;
+  443:         const yDist = center1.y - center2.y;
+  444          
+
+  481          //planets.map((planet) => drawOrbit(planet));
+  482:         // const sunCenter = {'x': this.width / 2, 'y': this.height / 2};
+  483:         //const sunCenter = {'x': 0.25 * parseInt(window.innerWidth), 'y': 0.75 * parseInt(window.innerHeight)};
+  484  
+
+  546          //planets.map((planet) => drawOrbit(planet));
+  547:         // const sunCenter = {'x': this.width / 2, 'y': this.height / 2};
+  548:         //const sunCenter = {'x': 0.25 * parseInt(window.innerWidth), 'y': 0.75 * parseInt(window.innerHeight)};
+  549  
+
+  604      // run it
+  605:     const solarCycleTaijitu = new SolarCycleTaijitu();
+  606      solarCycleTaijitu.printThis();
+
+solar-system/dist/script.js:
+  208              // average of the two centers
+  209:             // const centerCenter = {
+  210              //     'x': (center1.x + center2.x) / 2,
+
+  214              // radius of large circle is Euclidean distance between the centers of the two smallest circles (center1, center2)
+  215:             //const radius = this.euclideanDistance(center1, center2);
+  216              // compute orientation of yin and yan sides relative to vertical
+
+  409          //planets.map((planet) => drawOrbit(planet));
+  410:         // const sunCenter = {'x': this.width / 2, 'y': this.height / 2};
+  411:         //const sunCenter = {'x': 0.25 * parseInt(window.innerWidth), 'y': 0.75 * parseInt(window.innerHeight)};
+  412          var _this = this;
+
+spheridal/index.html.orig:
+   14  <script>
+   15: //     const results = [
+   16  //   {name: "1", count: 30, color: "white"},
+
+   64  
+   65: const drawRing = (results) => {
+   66      let total = results.length;
+
+   99  
+  100: const drawGrids = (width1=12, width2=31) => {
+  101      let min = 20;
+
+  169  
+  170: const drawCounter = (counter) => {
+  171      cx.beginPath();
+
+  184  
+  185: const drawNext = (total, refreshId) => {
+  186  
+
+  214  
+  215: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  216      let part = portion % total;
+
+  346  
+  347: const drawYinYang = () => {
+  348      let radius = 100;
+
+  422  
+  423: const drawIBang = (iNotBang=true) => {
+  424      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+  464  
+  465: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  466      for (let i = 0; i < total; i++) {
+
+spheridal/script.js:
+    1: const setWhite = (cx, alpha=1) => {
+    2      // cx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+
+    7  
+    8: const setBlack = (cx, alpha=1) => {
+    9      cx.fillStyle = `rgba(25, 25, 25, ${alpha})`;
+
+   12  
+   13: const euclideanDistance = (center1, center2) => {
+   14      
+   15:     const xDist = center1.x - center2.x;
+   16:     const yDist = center1.y - center2.y;
+   17      
+
+   22  
+   23: const drawYinYanEccentric = (center1={'x': 511, 'y': 441}, center2={'x': 923, 'y': 741}) => {
+   24      
+
+   29  
+   30:     const centerCenter = {
+   31          'x': (center1.x + center2.x) / 2,
+
+   35      // radius of large circle is Euclidean distance between the centers of he two smallest circles (center1, center2)
+   36:     const radius = euclideanDistance(center1, center2);
+   37      
+
+   79  
+   80: const drawYinYanEccentric1 = (center1={'x': 500, 'y': 440}, center2={'x': 800, 'y': 640}) => {
+   81      
+   82:     const centerCenter = {};
+   83      
+
+   86      
+   87:     const radius = Math.sqrt(Math.pow(center1.x - center2.x, 2) + Math.pow(center1.y - center2.y, 2));
+   88      
+
+  194  
+  195: const drawPlanet = (planet={'radius': 50, 'mass': 4}, center={'x': 600, 'y': 440}) => {
+  196      
+
+  206  
+  207: const drawCircle = (center={'x': 600, 'y': 440}, radius) => {
+  208      
+
+  216  
+  217: const fillCircle = (center={'x': 600, 'y': 440}, radius) => {
+  218      cx.globalCompositeOperation = 'difference';
+
+  254  
+  255:     const sunCenter = {'x': cnvs.width / 2, 'y': cnvs.height / 1.01};
+  256:     //const sunCenter = {'x': cnvs.width / 2, 'y': cnvs.height / 2};
+  257  
+
+  294  
+  295: // const refreshIds = [];
+  296  // let acc = 0;
+
+  324  // // needs instrumenting, naming variables for hardcoded parameters scattered below
+  325: // const drawCounter = (counter) => {
+  326  //     leftX = 620;
+
+  341  
+  342: // const drawConcentricPlane = (counter=-500) => {
+  343: //     // const drawConcentricPlane = (counter=-0.35456789) => {
+  344  //     console.log(`in drawConcentricPlane(${counter})`);
+
+  363  
+  364: //     const degreesToRadiansRatio = 0.0174533;
+  365  //     while (radius > 0.5) {
+
+  460  /*
+  461: //     const results = [
+  462  //   {name: "1", count: 30, color: "white"},
+
+  510  
+  511: const drawRing = (results) => {
+  512      let total = results.length;
+
+  546  // draws the animation, and this is a terrible name for the function, if what you want to do is actually draw a circle
+  547: const drawCircle = (total, orientation, radius, blank=true, maxRadius=300) => {
+  548      for (let i = 0; i < total; i++) {
+
+  563  
+  564: const drawGrids = (width1=12, width2=31) => {
+  565      let min = 20;
+
+  633  
+  634: const drawCounter = (counter) => {
+  635      cx.beginPath();
+
+  648  
+  649: const drawNext = (total, refreshId) => {
+  650  
+
+  678  
+  679: const drawLines = (portion, total, orientation, radius, blank=false, maxRadius=325) => {
+  680      let part = portion % total;
+
+  810  
+  811: const drawYinYang = () => {
+  812      let radius = 100;
+
+  886  
+  887: const drawIBang = (iNotBang=true) => {
+  888      console.log(`in drawIBang, iNotBang=${iNotBang}`);
+
+yin-water/script.js:
+   18  
+   19: const origin = (x = 500, y = 500) => {
+   20      return {'x': x, 'y': y};
+
+   23  
+   24: const rotateByRadians = (radians = (Math.PI / 16), object = false) => {
+   25      if (!object === true) {
+
+   30  }
+   31: const rotateByDegrees = (degrees = 15, object = false) => {
+   32      return rotateByRadians(Math.PI * degrees / 180, object);
+
+   35  
+   36: const flipBit = (bit) => {
+   37      bit = !bit;
+
+   40  
+   41: const flipBits = (bitList) => {
+   42      for (let bit of bitList) {
+
+   47  
+   48: const initialize1Unit = () => {
+   49      [x, y] = origin();
+
+   56  // distance between points 1 and 2
+   57: const euclideanDistance = (p1=[0,0], p2=[0,0]) => {
+   58      //console.log(p1, p2);
+
+   63  // distance between points 1 and 2
+   64: const manhattanDistance = (p1=[0,0], p2=[0,0]) => {
+   65      return Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
+
+   70  // detour index (DI) defined as the ratio of network distance (ND) to straight-line/Euclidean distance (ED)
+   71: const detourIndex = (points=[[0,0]]) => {
+   72      let accDI = 0; // accumulator for averaging detour index
+
+   84  // draw a circle
+   85: const scribeCircle = (
+   86              currentAngle = -Math.PI/2 + (2 * Math.PI * 2.5 / 12)
+
+  107  // boolean whether point is in image (T) or is not in image (F)
+  108: const inImage = (x=-1, y=-1, imageCallback) => {
+  109      return imageCallback(x,y); // a boolean draw function for (x,y)
+
+  112  // draw function for a circle
+  113: const imageBitEuclidean = (x,y) => {
+  114      return baseRadius > euclideanDistance([x,y], [centerX,centerY]);
+
+  116  // draw function for a Manhattan Distance "circle" (a tilted square)
+  117: const imageBitManhattan = (x,y) => {
+  118      return baseRadius >  manhattanDistance([x,y], [centerX,centerY]);
+
+  120  // another draw function for another pattern
+  121: const imageBitCombiner = (x,y) => {
+  122      return baseRadius > euclideanDistance([x,y], [centerX,centerY]) * manhattanDistance([x,y], [centerX,centerY]) / baseRadius;
+
+  124  // subtracting manhattan from euclidean distance
+  125: const imageBitDiffing = (x,y) => {
+  126      return baseRadius > Math.pow(euclideanDistance([x,y], [centerX,centerY]) - manhattanDistance([x,y], [centerX,centerY]), 2) / 2;
+
+  130  // draw grids
+  131: const drawGrids = () => {
+  132      console.log("in drawGridSimple", minX, maxX, minY, maxY, width);
+  133  
+  134:     const sqCenter = width / 2.0;
+  135      let sqX = sqCenter;
+
+  183   */
+  184: const handlePressLeft = (e) => {
+  185      console.log('Left button pressed');
+
+  193   */
+  194: const handlePressMinus = (e, subtractPercent = 12.3) => {
+  195      handlePressPlus(e, -subtractPercent);
+
+  202   */
+  203: const handlePressRun = (e) => {
+  204      console.log('Run button pressed');
+
+  212   */
+  213: const handlePressPlus = (e, addPercent = 12.3) => {
+  214      width *= (100.0 + addPercent) / 100.0;
+
+  223   */
+  224: const handlePressRight = (e) => {
+  225      console.log('Right button pressed');
+
+  227  }
+  228: const handlePressReset = (e) => {
+  229      init();
+
+  234  // clear and draw with current params
+  235: const redraw = (
+  236          currentAngle=-Math.PI/2 + (2 * Math.PI * 1.5 / 12)
+
+  269  // set or reset intitial parameters
+  270: const init = () => {
+  271      console.log("in init");
+
+  305  // initialize and draw
+  306: const run = () => {
+  307      console.log("in run");

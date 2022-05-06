@@ -16,8 +16,7 @@
  * at the beginning or a generative sequence, and deterministically repeatable to be generated identically
  * if the algorithm is again given the same parameters.
  * 
- * 
- * 
+
  * Components:
  *     orbital data
  *     control and configuration
@@ -533,66 +532,6 @@ class SolarCycleTaijitu {
                     break;
                 }
         }
-    }
-
-
-    /**
-     * Experiment with different kinds of drawing the artwork.
-     */
-     public drawWorkspace2() {
-        let numDays = 1200;
-        //sqrtDists.map((distance, index) => planets[index].radius = distance);
-        //console.table(planets);
-        //planets.map((planet) => drawOrbit(planet));
-        // const sunCenter = {'x': this.width / 2, 'y': this.height / 2};
-        //const sunCenter = {'x': 0.25 * parseInt(window.innerWidth), 'y': 0.75 * parseInt(window.innerHeight)};
-
-
-        //mercDists.map((rad) => drawYinYanEccentric(sunCenter, {'x': 400 + 1 * rad, 'y': 500}));
-        //mercDists.map((rad) => drawYinYanEccentric(sunCenter, {'x': 400 + 2 * 1.618 * rad, 'y': 500}));
-        //sqrtDists.map((rad) => drawYinYanEccentric(sunCenter, {'x': 400 + 10 * rad, 'y': 500}));
-
-        //let increment = 1;
-        //let increment = 12;
-        let increment = 30;
-        //let increment = 60;
-        //let increment = 100;
-        //for (let day = 0; day < yearDays[6]; day += increment) {
-        for (let day = 0; day < this.solarData.yearDays[8]; day += increment) {
-            if (day % 37 < 35) continue;
-            //if (day % 33 < 5) increment++;
-            //if (day % 73 < 3) increment--;
-            //if (increment > 21) increment = 1;
-            if (day % 43 > 4) continue;
-
-            this.cx.fillStyle = 'black';
-            this.cx.fillRect(0, 0, this.width, this.height);
-
-            this.solarData.sqrtDists.map((radius, index) => {
-                    // let ret = setInterval(
-                    //     () => { 
-                            if (index > 5) return;
-                            radius *= 11;//0.99;//0.618;
-                            console.log(day, radius);
-
-                            let rotation = day / this.solarData.yearDays[index];
-
-                            let radians = rotation * 2 * Math.PI;
-                            let radX = radius * Math.cos(radians);
-                            let radY = -radius * Math.sin(radians);
-                            
-                            this.drawYinYanEccentric(this.sunCenter, {'x': this.sunCenter.x + radX, 'y': this.sunCenter.y + radY}) 
-                            //this.drawYinYanCircle(this.sunCenter, {'x': this.sunCenter.x + radX, 'y': this.sunCenter.y + radY})
-                             //this.drawYinYanPerspective(this.sunCenter, {'x': this.sunCenter.x, 'y': this.sunCenter.y}, Math.PI / 6)
-                    }
-            //        , 20
-                );
-                
-                if (day >= numDays) {
-                    window.open(this.cnvs.toDataURL(), '_blank');
-                    break;
-                }
-        }
 
     }
 
@@ -604,23 +543,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // run it
     const solarCycleTaijitu = new SolarCycleTaijitu();
     solarCycleTaijitu.printThis();
-    // solarCycleTaijitu.drawYinYanEccentric(); // boring little single one
-    //solarCycleTaijitu.drawWorkspace(); // neat and small colorful geometry
+    solarCycleTaijitu.drawWorkspace(); // boring little single one
     //solarCycleTaijitu.drawWorkspace0(); // flashing nonsense
-
-
-
     // solarCycleTaijitu.drawWorkspace1();
-    solarCycleTaijitu.drawWorkspace2();
+    //solarCycleTaijitu.drawYinYanEccentric();
 
-    
-
-    // insert parameters before redraw
     // TODO rotate head-on 2D circle in 3D as ellipse
-    // let radius = 300;
+    //let radius = 300;
     // let rotation = Math.PI / 4;
     // let radians = rotation * 1 * Math.PI;
     // let radX = radius * Math.cos(radians);
     // let radY = -radius * Math.sin(radians);
-    // solarCycleTaijitu.drawYinYanPerspective(solarCycleTaijitu.sunCenter, radius, Math.PI / -6)
+    //solarCycleTaijitu.drawYinYanPerspective(solarCycleTaijitu.sunCenter, radius, Math.PI / -6)
 });
