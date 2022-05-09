@@ -125,9 +125,9 @@ async function sleep(millis) {
 
 async function drawYinYangSpinningDonuts(centerX, centerY, radius) {
     drawYinYang(centerX, centerY, radius);
-    await sleep(2800);
+    await sleep(2200);
     drawYinYangLeft(centerX, centerY, radius);
-    await sleep(1000);
+    await sleep(800);
     const max = 360 * Math.pow(2, 3);
     for (let i = 0; i <= max; i++)
     {
@@ -259,7 +259,7 @@ let interval = setInterval(() => {
         }
         , millisecondsperframe);
 
-
+*/
 
 // nice blue gray border elements
 const drawYinYangNice = () => {
@@ -349,7 +349,3 @@ const drawYinYangNice = () => {
     // cx.lineWidth = "3";
     // cx.stroke();
 };
-
-
-
-        */

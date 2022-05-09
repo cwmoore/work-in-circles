@@ -270,13 +270,21 @@ class SolarCycleTaijitu {
     }
 
         
+    // /**
+    //  * Draw the taijitu/yin-yan symbol in perspective.
+    //  * 
+    //  * @param center1 the location of the smallest black circle
+    //  * @param center2 the location of the smallest white circle
+    //  */
+    //public drawYinYanPerspective = (center1: any = null, center2: any = null, horizontalAngle: number = 0) => {
+
+    
     /**
      * Draw the taijitu/yin-yan symbol in perspective.
      * 
-     * @param center1 the location of the smallest black circle
-     * @param center2 the location of the smallest white circle
+     * @param centerCenter the location of the smallest black circle and the smallest white circle
+     * @param radius
      */
-    //public drawYinYanPerspective = (center1: any = null, center2: any = null, horizontalAngle: number = 0) => {
     public drawYinYanPerspective = (centerCenter: any = null, radius: number = 100, horizontalAngle: number = Math.PI * 0) => {
 
         if (!centerCenter) { centerCenter = this.sunCenter; }
@@ -424,8 +432,10 @@ class SolarCycleTaijitu {
      */
      private setBlack = (alpha=1) => {
          //temporary
-        this.cx.fillStyle = `rgba(125, 25, 25, ${alpha})`;
-        this.cx.strokeStyle = `rgba(0, 210, 0, ${alpha})`;
+        // this.cx.fillStyle = `rgba(125, 25, 25, ${alpha})`;
+        // this.cx.strokeStyle = `rgba(0, 210, 0, ${alpha})`;
+        this.cx.fillStyle = `rgba(25, 25, 25, ${alpha})`;
+        this.cx.strokeStyle = `rgba(25, 25, 25, ${alpha})`;
     }
 
     
@@ -459,14 +469,14 @@ class SolarCycleTaijitu {
     }
 
     
-    public drawWorkspace0() {
-        let jMax = 10;
-        let iMax = 10;
+    public drawWorkspace0(jMax = 10, iMax = 10) {
         let counter = 0;
         for (let j = 0; j < jMax; j += 1) {
             for (let i = 0; i < iMax; i++) {
-                setInterval(() => this.drawYinYanEccentric(this.sunCenter, {'x': Math.pow(2, i / j), 'y': counter++ % Math.pow(2, j / i)})
-                    , 0.1);
+                setInterval(() => this.drawYinYanEccentric(
+                        this.sunCenter
+                        , {'x': Math.pow(2, i / j), 'y': counter++ % Math.pow(2, j / i)})
+                    , 0.051);
             }
         }
     }
@@ -543,16 +553,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // run it
     const solarCycleTaijitu = new SolarCycleTaijitu();
     solarCycleTaijitu.printThis();
-    solarCycleTaijitu.drawWorkspace(); // boring little single one
-    //solarCycleTaijitu.drawWorkspace0(); // flashing nonsense
-    // solarCycleTaijitu.drawWorkspace1();
-    //solarCycleTaijitu.drawYinYanEccentric();
 
     // TODO rotate head-on 2D circle in 3D as ellipse
-    //let radius = 300;
+    // let radius = 300;
+    // console.log(radius);
     // let rotation = Math.PI / 4;
     // let radians = rotation * 1 * Math.PI;
     // let radX = radius * Math.cos(radians);
     // let radY = -radius * Math.sin(radians);
-    //solarCycleTaijitu.drawYinYanPerspective(solarCycleTaijitu.sunCenter, radius, Math.PI / -6)
+    // solarCycleTaijitu.drawYinYanPerspective({x: 300, y: 300}, 200, 0.5 * Math.PI);
+    
+    // solarCycleTaijitu.drawYinYanPerspective(solarCycleTaijitu.sunCenter, radius, Math.PI / -6);
+
+    
+    // solarCycleTaijitu.drawWorkspace(); // boring little single one
+    solarCycleTaijitu.drawWorkspace0(4, 17); // flashing nonsense
+    // solarCycleTaijitu.drawWorkspace1();
+    // solarCycleTaijitu.drawYinYanEccentric();
 });
