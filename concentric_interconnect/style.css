@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #333;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    padding: 1rem;
+    margin: 0.2rem;
+}
+
+#control {
+    background: rgba(180, 255, 180, 0.5);
+    display: inline-block;
+
+    /*width:  22rem;
+    min-height:  24rem;
+    max-height:  88rem;
+    */
+    width: 1080px;
+    height: 1080px;
+
+    margin: 0;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-left: 0;
+}
+
+#control button {
+    min-width: 4.5rem;
+    max-width: 5rem;
+}
+
+#main_canvas {
+    display: inline-block;
+    width: 1080px;
+    height: 1080px;
+}
