@@ -271,6 +271,10 @@ cnvs.style.height = window.innerHeight;
 // set the canvas with and height attributes
 cnvs.setAttribute('width', window.getComputedStyle(cnvs, null).getPropertyValue('width'));
 cnvs.setAttribute('height', window.getComputedStyle(cnvs, null).getPropertyValue('height'));
+// TODO attempt to set style.width property
+// let windowRoom = Math.min(window.getComputedStyle(cnvs, null).getPropertyValue('height'), window.getComputedStyle(cnvs, null).getPropertyValue('width'));
+// cnvs.setAttribute('width', windowRoom);
+// cnvs.setAttribute('height', windowRoom);
 // get context
 let cx = cnvs.getContext("2d");
 
@@ -288,9 +292,10 @@ const init = () => {
 
     minX = 2;
     minY = 2;
-    baseRadius = 150; // smaller screen size
-    // baseRadius = Math.max(400, Math.floor(cnvs.style.width / 2)) - (minX + minY); // center, subtract for margin
-    radiusInWidths = 50;
+    // baseRadius = 150; // smaller screen size
+    baseRadius = Math.max(400, Math.floor(cnvs.style.width / 2)) - (minX + minY); // center, subtract for margin
+    // baseRadius = Math.min(cnvs.style.height, cnvs.style.width) / 2;
+    radiusInWidths = 40;
     width = baseRadius / radiusInWidths;
     // width = 1.0001234 * Math.floor(baseRadius / radiusInWidths); // start closer to an integer for moire pattern effects
 
