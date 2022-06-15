@@ -503,7 +503,7 @@ class SolarCycleTaijitu {
         //let increment = 100;
         //for (let day = 0; day < yearDays[6]; day += increment) {
         for (let day = 0; day < this.solarData.yearDays[8]; day += increment) {
-            //if (day % 37 > 4) continue;
+            // if (day % 37 > 4) continue;
             if (day % 37 < 30) continue;
             //if (day % 33 < 5) increment++;
             //if (day % 73 < 3) increment--;
@@ -517,9 +517,9 @@ class SolarCycleTaijitu {
             this.solarData.sqrtDists.map((radius, index) => {
                     // let ret = setInterval(
                     //     () => { 
-                            if (index > 5) return;
-                            radius *= 11;//0.99;//0.618;
-                            console.log(day, radius);
+                            if (index >= 6) return;
+                            radius *= 18;//0.618;
+                            // console.log(day, radius);
 
                             let rotation = day / this.solarData.yearDays[index];
 
@@ -536,9 +536,6 @@ class SolarCycleTaijitu {
                 
                 if (day >= 12000) {
                     window.open(this.cnvs.toDataURL(), '_blank');
-                }
-
-                if (day > 12000) {
                     break;
                 }
         }
@@ -567,7 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     // solarCycleTaijitu.drawWorkspace(); // boring little single one
-    solarCycleTaijitu.drawWorkspace0(4, 17); // flashing nonsense
-    // solarCycleTaijitu.drawWorkspace1();
+    //solarCycleTaijitu.drawWorkspace0(4, 17); // flashing nonsense
+    solarCycleTaijitu.drawWorkspace1();
     // solarCycleTaijitu.drawYinYanEccentric();
 });

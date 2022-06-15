@@ -425,7 +425,7 @@ var SolarCycleTaijitu = /** @class */ (function () {
         //let increment = 12;
         var increment = 30;
         var _loop_3 = function (day) {
-            //if (day % 37 > 4) continue;
+            // if (day % 37 > 4) continue;
             if (day % 37 < 30)
                 return "continue";
             //if (day % 33 < 5) increment++;
@@ -438,10 +438,10 @@ var SolarCycleTaijitu = /** @class */ (function () {
             this_1.solarData.sqrtDists.map(function (radius, index) {
                 // let ret = setInterval(
                 //     () => { 
-                if (index > 5)
+                if (index >= 6)
                     return;
-                radius *= 11; //0.99;//0.618;
-                console.log(day, radius);
+                radius *= 18; //0.618;
+                // console.log(day, radius);
                 var rotation = day / _this.solarData.yearDays[index];
                 var radians = rotation * 2 * Math.PI;
                 var radX = radius * Math.cos(radians);
@@ -454,8 +454,6 @@ var SolarCycleTaijitu = /** @class */ (function () {
             );
             if (day >= 12000) {
                 window.open(this_1.cnvs.toDataURL(), '_blank');
-            }
-            if (day > 12000) {
                 return "break";
             }
         };
@@ -486,8 +484,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // solarCycleTaijitu.drawYinYanPerspective({x: 300, y: 300}, 200, 0.5 * Math.PI);
     // solarCycleTaijitu.drawYinYanPerspective(solarCycleTaijitu.sunCenter, radius, Math.PI / -6);
     // solarCycleTaijitu.drawWorkspace(); // boring little single one
-    solarCycleTaijitu.drawWorkspace0(4, 17); // flashing nonsense
-    // solarCycleTaijitu.drawWorkspace1();
+    //solarCycleTaijitu.drawWorkspace0(4, 17); // flashing nonsense
+    solarCycleTaijitu.drawWorkspace1();
     // solarCycleTaijitu.drawYinYanEccentric();
 });
 //# sourceMappingURL=script.js.map
