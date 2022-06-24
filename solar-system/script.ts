@@ -144,9 +144,9 @@ class SolarCycleTaijitu {
         // cnvs.style.width = screen.width.toString();
         // cnvs.style.height = screen.height.toString();
         
-        cnvs.style.width = '80vw';
+        cnvs.style.width = '100vw';
         cnvs.style.height = '100vh';
-        cnvs.style.paddingLeft = '10vw';
+        // cnvs.style.paddingLeft = '10vw';
         //cnvs.style.paddingTop = '10vh';
 
 
@@ -316,6 +316,13 @@ class SolarCycleTaijitu {
 
         let rotation = 0; // 
 
+        if (radius < 0) {
+            radius = -radius;
+        }
+        if (minorMajorRatio < 0) {
+            minorMajorRatio = -minorMajorRatio;
+        }
+
         // draw white large ellipse
         this.setWhite();
         this.cx.beginPath();
@@ -432,10 +439,10 @@ class SolarCycleTaijitu {
      */
      private setBlack = (alpha=1) => {
          //temporary
-        // this.cx.fillStyle = `rgba(125, 25, 25, ${alpha})`;
-        // this.cx.strokeStyle = `rgba(0, 210, 0, ${alpha})`;
         this.cx.fillStyle = `rgba(25, 25, 25, ${alpha})`;
         this.cx.strokeStyle = `rgba(25, 25, 25, ${alpha})`;
+        // this.cx.fillStyle = `rgba(125, 25, 25, ${alpha})`;
+        // this.cx.strokeStyle = `rgba(0, 210, 0, ${alpha})`;
     }
 
     
@@ -496,52 +503,84 @@ class SolarCycleTaijitu {
         //mercDists.map((rad) => drawYinYanEccentric(sunCenter, {'x': 400 + 2 * 1.618 * rad, 'y': 500}));
         //sqrtDists.map((rad) => drawYinYanEccentric(sunCenter, {'x': 400 + 10 * rad, 'y': 500}));
 
-        //let increment = 1;
-        //let increment = 12;
-        let increment = 30;
-        //let increment = 60;
+        let increment = 3;
+        // let increment = 12;
+        // let increment = 30;
+        // let increment = 43;
         //let increment = 100;
         //for (let day = 0; day < yearDays[6]; day += increment) {
-        for (let day = 0; day < this.solarData.yearDays[8]; day += increment) {
+        let numCycles = 4 * this.solarData.yearDays[5];
+        for (let day = 0; day < numCycles; day += increment) {
+            
+                
+            if (day >= numCycles - increment) {
+                // window.open(this.cnvs.toDataURL(), '_blank');
+                console.log('done');
+                break;
+            }
+
             // if (day % 37 > 4) continue;
-            if (day % 37 < 30) continue;
+            // if (day % 37 < 13) continue;
             //if (day % 33 < 5) increment++;
             //if (day % 73 < 3) increment--;
             //if (increment > 21) increment = 1;
             //if (day % 43 > 4) continue;
-            //if (day % 43 > 5) continue;
+            if (day % 43 > 3) continue;
 
             this.cx.fillStyle = 'black';
             this.cx.fillRect(0, 0, this.width, this.height);
 
+            // let rotation = 0;
             this.solarData.sqrtDists.map((radius, index) => {
-                    // let ret = setInterval(
-                    //     () => { 
-                            if (index >= 6) return;
-                            radius *= 18;//0.618;
-                            // console.log(day, radius);
+    
+                // planets to include
+                if ([0,1,2,3,4,/*5,6,7,8*/].indexOf(index) < 0) return;
 
-                            let rotation = day / this.solarData.yearDays[index];
 
-                            let radians = rotation * 2 * Math.PI;
-                            let radX = radius * Math.cos(radians);
-                            let radY = -radius * Math.sin(radians);
-                            
-                            this.drawYinYanEccentric(this.sunCenter, {'x': this.sunCenter.x + radX, 'y': this.sunCenter.y + radY}) 
-                            //this.drawYinYanCircle(this.sunCenter, {'x': this.sunCenter.x + radX, 'y': this.sunCenter.y + radY})
-                             //this.drawYinYanPerspective(this.sunCenter, {'x': this.sunCenter.x, 'y': this.sunCenter.y}, Math.PI / 6)
-                    }
-            //        , 20
-                );
+                radius *= 19;//17.6667;//0.618;
+                // radius /= 4;
+                // console.log(day, radius);
+
+                let rotation = .13333 * day / this.solarData.yearDays[index];
+                // rotation = (rotation + 13) % 360;
+
+                let radians = rotation * 2 * Math.PI;
+                let radX = radius * Math.cos(radians);
+                let radY = -radius * Math.sin(radians);
+    
+                setTimeout(() => {
+                    this.drawYinYanEccentric(
+                        this.sunCenter
+                        , {
+                            'x': this.sunCenter.x + radX
+                            , 'y': this.sunCenter.y + radY
+                        });
+                    //this.drawYinYanCircle(this.sunCenter, {'x': this.sunCenter.x + radX, 'y': this.sunCenter.y + radY})
+                    //this.drawYinYanPerspective(this.sunCenter, {'x': this.sunCenter.x, 'y': this.sunCenter.y}, Math.PI / 6)
+                  }, 333);
+                    
                 
-                if (day >= 12000) {
-                    window.open(this.cnvs.toDataURL(), '_blank');
-                    break;
-                }
+
+        });
         }
+        
 
     }
 
+}
+
+function blit(cnvs) { // TODO implement for interactive performance, overlay and precomputation
+    // adapted from: https://stackoverflow.com/a/6003174/6254147
+    // setup
+    var buffer = document.createElement('canvas');
+    buffer.width = cnvs.width;
+    buffer.height = cnvs.height;
+
+    // save
+    buffer.getContext('2d').drawImage(cnvs, 0, 0);
+
+    // restore
+    cnvs.getContext('2d').drawImage(buffer, 0, 0);
 }
 
 // when page is loaded
@@ -552,19 +591,27 @@ document.addEventListener("DOMContentLoaded", () => {
     solarCycleTaijitu.printThis();
 
     // TODO rotate head-on 2D circle in 3D as ellipse
-    // let radius = 300;
+    // let radius = 200;
     // console.log(radius);
     // let rotation = Math.PI / 4;
     // let radians = rotation * 1 * Math.PI;
     // let radX = radius * Math.cos(radians);
     // let radY = -radius * Math.sin(radians);
     // solarCycleTaijitu.drawYinYanPerspective({x: 300, y: 300}, 200, 0.5 * Math.PI);
-    
-    // solarCycleTaijitu.drawYinYanPerspective(solarCycleTaijitu.sunCenter, radius, Math.PI / -6);
+    //solarCycleTaijitu.drawYinYanPerspective(solarCycleTaijitu.sunCenter, radius, Math.PI / -4);
 
     
     // solarCycleTaijitu.drawWorkspace(); // boring little single one
     //solarCycleTaijitu.drawWorkspace0(4, 17); // flashing nonsense
     solarCycleTaijitu.drawWorkspace1();
-    // solarCycleTaijitu.drawYinYanEccentric();
+    // solarCycleTaijitu.drawYinYanEccentric(solarCycleTaijitu.sunCenter, {x: 600, y: 300});
+});
+
+// TODO add button to drop current PNG in new tab
+// let dropBtn = document.querySelector('#dropPNG');
+// dropBtn.addEventListener('click', (e) => {
+//     window.open(document.querySelector('canvas').toDataURL(), '_blank');
+// });
+document.querySelector('#main_canvas').addEventListener('mousedown', (e) => {
+    window.open(document.querySelector('canvas').toDataURL(), '_blank');
 });

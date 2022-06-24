@@ -1,4 +1,41 @@
-<?php
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Solar System Circoncentric</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="contain">
+            <canvas id="main_canvas"></canvas>
+            <script src="script.js"></script>
+        </div>
+        <div class="prose">
+
+
+        <b>
+Tao Te Ching - Lao Tzu - chapter 32<br><br>
+</b>
+
+The Tao is forever undefined.<br>
+Small though it is in the unformed state, it cannot be grasped.<br>
+If kings and lords could harness it,<br>
+The ten thousand things would naturally obey.<br>
+Heaven and earth would come together<br>
+And gentle rain fall.<br>
+Men would need no more instruction<br>
+&#160;&#160;&#160;&#160;&#160;and all things would take their course.<br><br>
+
+Once the whole is divided, the parts need names.<br>
+There are already enough names.<br>
+One must know when to stop.<br>
+Knowing when to stop averts trouble.<br>
+Tao in the world is like a river flowing home to the sea.<br><br><br>
+
+        </div>
+        <code><pre><?php
 
 // https://nssdc.gsfc.nasa.gov/planetary/factsheet/
 // This is the average distance from the planet to the Sun in millions of kilometers or millions of miles, also known as the semi-major axis. All planets have orbits which are elliptical, not perfectly circular, so there is a point in the orbit at which the planet is closest to the Sun, the perihelion, and a point furthest from the Sun, the aphelion. The average distance from the Sun is midway between these two values. The average distance from the Earth to the Sun is defined as 1 Astronomical Unit (AU), so the ratio table gives this distance in AU.
@@ -106,3 +143,17 @@ foreach ($merged as $name=>$ratios)
 }
 
 ?>
+</pre></code>
+
+<footer class="prose">
+
+<p>Excerpt from Tao Te Ching from Gia-fu Feng and Jane English translation</p>
+<p>Planetary data from NASA</p>
+<p>Generative artwork by <a href="https://www.curtiswmoore.com/">CMOORE</a> &copy; 2022</p>
+<?php /*
+
+<h3 class="prose"><b>Click anywhere on image to extract a PNG image file from the stream.</b></h3>
+*/ ?>
+</footer>
+    </body>
+</html>
